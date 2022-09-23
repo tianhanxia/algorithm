@@ -1,10 +1,8 @@
 package leetCode;
 
-import linkedList.ListNode;
-
 import java.util.*;
 
-public class appleInterview {
+public class CompressString {
     // string   char
     // a b c d a b b c a s c
     //                      i
@@ -45,7 +43,7 @@ public class appleInterview {
     }
 
     public static void main(String[] args) {
-        String res = countCharacter("");
+        String res = countCharacter("abaa");
         System.out.println(res);
 
     }

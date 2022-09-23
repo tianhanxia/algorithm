@@ -5,7 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class BuddyStrings {
+//Given two strings s and goal, return true if you can swap two letters in s so the result is equal to goal, otherwise, return false.
+//Swapping letters is defined as taking two indices i and j (0-indexed) such that i != j and swapping the characters at s[i] and s[j].
+//For example, swapping at indices 0 and 2 in "abcd" results in "cbad".
+
+public class LC859BuddyStrings {
     // if A.length != B.length, return false
     // if A == B, need to swap same characters, check if duplicate char
     // if A != B, should be only 2 diffs and swap

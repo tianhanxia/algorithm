@@ -11,10 +11,10 @@ public class LRUCache<K, V> {
         K key;
         V value;
 
-        Node<K key, V value> {
-            this.key = key;
-            this.value = value;
-        }
+//        Node<K key, V value> {
+//            this.key = key;
+//            this.value = value;
+//        }
 
         void update(K key, V value) {
             this.key = key;
@@ -46,7 +46,7 @@ public class LRUCache<K, V> {
         } else if (map.size() < limit) {
             // 2. if the key is not in the cache and we still have space
             // we can add append a new node to head
-            node = new Node<K, V>(key, value);
+//            node = new Node<K, V>(key, value);
         } else {
             // 3. if the key is not in cache and we don't have space,
             // we need to evict the tail and reuse the node let it maintain

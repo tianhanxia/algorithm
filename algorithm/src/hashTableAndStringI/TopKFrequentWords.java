@@ -7,6 +7,7 @@ public class TopKFrequentWords {
         if (combo.length == 0) {
             return new String[0];
         }
+        //get all the distinct strings as keys and frequencies as values
         Map<String, Integer> freqMap = getFreqMap(combo);
 //        PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>(k,
 //                new Comparator<Map.Entry<String, Integer>>() {
@@ -15,6 +16,9 @@ public class TopKFrequentWords {
 //                        return o1.getValue().compareTo(o2.getValue());
 //                    }
 //                });
+
+        //minHeap on the frequencies of the string
+        //the frequencies are represented by Integer
         PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
         for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
             if (minHeap.size() < k) {
@@ -24,6 +28,8 @@ public class TopKFrequentWords {
                 minHeap.offer(entry);
             }
         }
+        // Since the returned array requires the strings sorted by
+        // their frequencies, use a separate helper to do it
         return freqArray(minHeap);
     }
 
