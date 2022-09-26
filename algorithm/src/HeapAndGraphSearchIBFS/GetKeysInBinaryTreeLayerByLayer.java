@@ -16,8 +16,12 @@ public class GetKeysInBinaryTreeLayerByLayer {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
+            // the list storing all the nodes on the current level
             List<Integer> curLayer = new ArrayList<>();
+            // the seize of current level
             int size = queue.size();
+            // traverse all the nodes on current level and prepare for
+            // next level
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
                 curLayer.add(cur.key);
