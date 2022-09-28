@@ -18,4 +18,10 @@ public class RemoveSpaces {
         }
         return new String(array, 0, end);
     }
+
+    public static void main(String[] args) {
+        RemoveSpaces test = new RemoveSpaces();
+        String input = "   abc  de  ";
+        System.out.println(test.removeSpaces(input));
+    }
 }
