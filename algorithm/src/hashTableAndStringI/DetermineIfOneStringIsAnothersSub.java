@@ -15,4 +15,11 @@ public class DetermineIfOneStringIsAnothersSub {
         }
         return  -1;
     }
+
+    public static void main(String[] args) {
+        DetermineIfOneStringIsAnothersSub test = new DetermineIfOneStringIsAnothersSub();
+        String large = "abccc";
+        String small = "ab";
+        System.out.println(test.strstr(large, small));
+    }
 }

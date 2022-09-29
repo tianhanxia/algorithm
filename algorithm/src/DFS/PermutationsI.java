@@ -3,7 +3,10 @@ package DFS;
 import java.util.ArrayList;
 import java.util.List;
 
+// Given a string with no duplicate character, return a list with all
+// permutation of the characters
 public class PermutationsI {
+    // DFS with swapping
     public List<String> permutations(String input) {
         List<String> result = new ArrayList<>();
         if (input == null) {
@@ -14,7 +17,14 @@ public class PermutationsI {
         return result;
     }
 
+    // choose the character to be at the position of "index"
+    // all the already chosen positions are (0, index-1)
+    // all the candidate characters can be at position "index"
+    // are in the subarray of (index, array.length-1)
     private void helper(char[] array, int index, List<String> result) {
+        // terminate condition:
+        // only when we have already chosen the characters or all the
+        // position, we can have a complete permutation
         if (index == array.length) {
             result.add(new String(array));
             return;
