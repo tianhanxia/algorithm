@@ -37,7 +37,7 @@ public class LC88MergeSortedArray {
     //i
     //k
     //2 5 6
-   //j
+    //j
     public static void main(String[] args) {
         LC88MergeSortedArray test = new LC88MergeSortedArray();
         int[] nums1 = {1, 2, 3, 0, 0, 0};

@@ -6,9 +6,11 @@ public class Classic {
         if (array == null || array.length == 0){
             return -1;
         }
-        
+
+        // if target exists, it must in the range of [left, right]
         int left = 0;
         int right = array.length - 1;
+
         while (left <= right){
             int mid = left + (right - left) / 2;
 
@@ -28,6 +30,5 @@ public class Classic {
         int target = 9;
         int result = classicBinarySearch(array, target);
         System.out.println(result);
-
     }
 }

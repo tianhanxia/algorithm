@@ -33,21 +33,28 @@ public class LC20ValidParentheses {
 //        return stack.isEmpty();
 //    }
     public boolean isValid(String s) {
-        HashMap<Character,Character> maps=new HashMap<>();
+        HashMap<Character,Character> maps = new HashMap<>();
+        // key: close, value: open
         maps.put(')','(');
         maps.put(']','[');
         maps.put('}','{');
         Deque<Character> stack = new ArrayDeque<>();
         for(int i=0;i<s.length();i++){
             char c=s.charAt(i);
+            // if thr current character is a closing bracket
             if(maps.containsKey(c)){
+                // if the mapping for this bracket doesn't match the
+                // top element of stack, return false
                 if(stack.isEmpty()||stack.pollLast() != maps.get(c)){
                     return false;
                 }
             } else {
+                // if it was an opening bracket, push to the stack
                 stack.offerLast(c);
             }
         }
+        // if the stack still contains elements,
+        // then it is an invalid expression
         return stack.isEmpty();
     }
 

@@ -3,18 +3,19 @@ package crossTraining;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LRUCache<K, V> {
-    // each node contains the key, value pair and it is also a double linked list node
+public class LRUCacheGenaric<K, V> {
+    // each node contains the key, value pair
+    // and it is also a double linked list node
     static class Node<K, V> {
         Node<K, V> next;
         Node<K, V> prev;
         K key;
         V value;
 
-//        Node<K key, V value> {
-//            this.key = key;
-//            this.value = value;
-//        }
+        Node(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
 
         void update(K key, V value) {
             this.key = key;
@@ -30,7 +31,7 @@ public class LRUCache<K, V> {
     // maintains the relationship of key and its corresponding node in the double linked list
     private Map<K, Node<K, V>> map;
 
-    public LRUCache(int limit) {
+    public LRUCacheGenaric(int limit) {
         this.limit = limit;
         this.map = new HashMap<K, Node<K, V>>();
     }
@@ -46,7 +47,7 @@ public class LRUCache<K, V> {
         } else if (map.size() < limit) {
             // 2. if the key is not in the cache and we still have space
             // we can add append a new node to head
-//            node = new Node<K, V>(key, value);
+            node = new Node<K, V>(key, value);
         } else {
             // 3. if the key is not in cache and we don't have space,
             // we need to evict the tail and reuse the node let it maintain
@@ -63,7 +64,7 @@ public class LRUCache<K, V> {
         if (node == null) {
             return null;
         }
-        // even it is a rad operation, it is still a write operation to
+        // even it is a read operation, it is still a write operation to
         // the double linked list, and we need to move the node to head
         remove(node);
         append(node);
